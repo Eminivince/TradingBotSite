@@ -4,7 +4,9 @@ import Hand from '../assets/images/Iphonehand.png'
 import {MdSpaceDashboard, MdAccountBalanceWallet } from 'react-icons/md'
 import { BsFillRocketTakeoffFill } from 'react-icons/bs'
 import {FaMoneyCheck} from 'react-icons/fa'
-import { AiFillCreditCard } from 'react-icons/ai'
+import { AiFillCreditCard, AiFillQuestionCircle } from 'react-icons/ai'
+import { RiLogoutBoxRLine} from 'react-icons/ri'
+import Avatar from '../assets/images/Avatar.png'
 
 const Dashboard = () => {
   return (
@@ -14,61 +16,86 @@ const Dashboard = () => {
         </div>
         
         <header className='px-24 grid grid-cols-8 gap-3 justify-between space-x-5 mt-6'>
-            <div className='profile w-[100%] rounded-md flex items-center col-span-2 shadow-xl space-x-6 bg-white '>
-                <img src={Hand} alt='ProfilePic' className='w-16'/>
+            <div className='profile w-[100%] rounded-md flex items-center col-span-2 shadow-xl bg-white justify-around cursor-pointer'>
+                <img src={Avatar} alt='ProfilePic' className='w-12 hover:animate-pulse duration-300'/>
                 <div className='flex flex-col items-center'>
-                    <p className='font-bold'>Hi David,</p>
-                    <p className='font-semibold'>ayomidedavid@gmail.com </p>
+                    <p className='font-bold text-2xl'>Hi David,</p>
+                    <p className='font-semibold text-gray-600 text-sm hover:underline'>ayomidedavid@gmail.com </p>
                 </div>
             </div>
             <div className='balancce w-[100%] rounded-md col-span-3 flex justify-between font-bold items-center px-4 shadow-xl bg-black text-white'>
                 <MdAccountBalanceWallet className='text-3xl'/>
                 <div className='flex flex-col items-center'>
                     <p>Wallet balance</p>
-                    <p>$5,200</p>
+                    <p className='text-2xl'>$5,200</p>
                     <p>1% Monthly Growth</p>
                 </div>
                 <h1 className='text-4xl'>75%</h1>
             </div>
-            <div className='balancce border w-[100%] rounded-md col-span-3 flex justify-between font-bold items-center px-4 shadow-xl bg-green-700 text-white'>
+            <div className='balancce w-[100%] rounded-md col-span-3 flex justify-between font-bold items-center px-4 shadow-xl bg-green-700 text-white'>
                  <BsFillRocketTakeoffFill className='text-3xl'/>
                 <div className='flex flex-col items-center'>
                     <p>Pending Trade</p>
-                    <p>$3,600</p>
+                    <p className='text-2xl'>$3,600</p>
                     <p>1% Monthly Growth</p>
                 </div>
                 <h1 className='text-4xl'>25%</h1>
             </div>
         </header>
         <main className='px-24 mt-6 grid grid-cols-8 space-x-6 justify-between'>
-            <div className='sidebarr bg-white rounded-md w-[98%] col-span-2'>
-                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium bg-slate-400'>
-                    <MdSpaceDashboard className='text-4xl'/>
+            <div className='sidebarr bg-white rounded-md w-[98%] col-span-2 shadow-xl'>
+                <div className='mb-14'>
+                    <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium bg-slate-400 cursor-pointer duration-300'>
+                    <MdSpaceDashboard className='text-4xl text-blue-950'/>
                     <p>Dashboard</p>
                 </div>
-                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium bg-slate-400'>
-                    <FaMoneyCheck className='text-4xl'/>
+                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400 cursor-pointer duration-300'>
+                    <FaMoneyCheck className='text-4xl text-blue-950'/>
                     <p>Deposit</p>
                 </div>
-                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium bg-slate-400'>
-                    <AiFillCreditCard className='text-4xl'/>
+                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400 cursor-pointer duration-300'>
+                    <AiFillCreditCard className='text-4xl text-blue-950'/>
                     <p>Withdrawal</p>
                 </div>
-                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium bg-slate-400'>
-                    <MdSpaceDashboard className='text-4xl'/>
-                    <p>Dashboard</p>
+                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400 cursor-pointer duration-300'>
+                    <MdSpaceDashboard className='text-4xl text-blue-950'/>
+                    <p>Trade</p>
                 </div>
-                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium bg-slate-400'>
-                    <MdSpaceDashboard className='text-4xl'/>
-                    <p>Dashboard</p>
+                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400'>
+                    <MdSpaceDashboard className='text-4xl text-blue-950'/>
+                    <p>Transactions</p>
                 </div>
-                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium bg-slate-400'>
-                    <BsFillRocketTakeoffFill className='text-4xl'/>
+                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400 cursor-pointer duration-300'>
+                    <BsFillRocketTakeoffFill className='text-4xl text-blue-950'/>
                     <p>Earn</p>
                 </div>
+                </div>
+                <div className='supportt'>
+                    <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400 cursor-pointer duration-300'>
+                    <AiFillQuestionCircle className='text-4xl text-blue-950'/>
+                    <p>Support</p>
+                    </div>
+                    <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400 cursor-pointer duration-300'>
+                    <RiLogoutBoxRLine className='text-4xl text-blue-950'/>
+                    <p>Logout</p>
+                    </div>
+                </div>
+                
             </div>
-            <div className='graphnsection w-[100%] col-span-6 bg-lime-400 rounded-md'>
-                jjjjjjj
+            <div className='graphnsection w-[100%] col-span-6  rounded-md shadow-xl flex flex-col space-y-4'>
+                <div className='bg-white shadow-xl h-[65%] rounded-md'>Graph</div>
+                <div className='btm--info flex w-[100%] h-[35%] space-x-6'>
+                    <div className='buy bg-white shadow-xl w-[100%] rounded-md h-[100%] flex flex-col items-center space-y-5 pt-4 font-semibold'>
+                        <div className='flex space-x-4 w-fit'>
+                            <button type='button' className='border border-blue-950 py-2 px-7'>Buy</button>
+                            <button type='button '>Sell</button>
+                        </div>
+                        <div>
+                            <h1>Select Coin</h1>
+                        </div>
+                    </div>
+                    <div className='tx bg-white shadow-xl w-[100%] rounded-md h-[100%]'>TX</div>
+                </div>
             </div>
         </main>
     </div>
