@@ -46,18 +46,18 @@ const Homepage = () => {
                 <div className='md:flex flex flex-col space-y-10'>
                     <div>
                         <div className='bg-white md:w-[85%] text-[#001F3E] font-bold md:p-14 md:space-y-4 md:mt-14 mt-4 rounded-lg md:h-[300px] h-[200px] relative px-4 md:px-0'>
-                            <h1 className='md:text-5xl text-3xl pt-3 md:pt-0 text-center'>Real-Time Update</h1>
-                            <p className='text-xl text-center md:text-right mt-3 md:mt-0 mb-3 md:mb-0 md:pl-10'>Xelbot analyses market and automatically provides real time market update on various crypto currency</p>
+                            <h1 className='md:text-5xl text-2xl pt-3 md:pt-0 text-center'>Real-Time Update</h1>
+                            <p className='text-lg text-center md:text-right mt-3 md:mt-0 mb-3 md:mb-0 md:pl-10'>Xelbot analyses market and automatically provides real time market update on various crypto currency</p>
                             
                             <img src={Balance} alt="Balance" className='absolute md:left-32 h-[600px] left-10 hidden md:block' />
                         </div>
                     </div>
                     <div>
                         <div className='bg-white md:w-[85%] text-[#001F3E] font-bold md:p-14 md:space-y-4 md:mt-14 mt-4 rounded-lg md:h-[300px] h-[250px] relative px-4 md:px-0'>
-                            <h1 className='md:text-5xl text-3xl pt-3 md:pt-0 text-center'>Real-Time Update</h1>
-                            <p className='text-xl text-center md:text-right mt-3 md:mt-0 mb-3 md:mb-0 md:pl-10'>Xelbot analyses market and automatically provides real time market update on various crypto currency</p>
+                            <h1 className='md:text-5xl text-2xl pt-3 md:pt-0 text-center'>Real-Time Update</h1>
+                            <p className='text-lg text-center md:text-right mt-3 md:mt-0 mb-3 md:mb-0 md:pl-10'>Xelbot analyses market and automatically provides real time market update on various crypto currency</p>
                             
-                            <img src={Balance} alt="Balance" className='absolute md:left-32 md:h-[600px] h-[500px] left-[65px]' />
+                            <img src={Balance} alt="Balance" className='absolute md:left-32 md:h-[600px] h-[500px] left-[70px]' />
                         </div>
                     </div>
                     
@@ -71,7 +71,7 @@ const Homepage = () => {
             <div className='md:flex justify-around flex md:flex-row flex-col-reverse items-center'>
                     <div className='w-[60%]'>
                 <img src={Onboarding} alt="onboardingmobile" className='md:h-[800px] md:w-[550px] hidden md:block' />
-                <img src={StraightMobile} alt="onboardingmobile" className='md:h-[800px] md:w-[500px] md:hidden h-[300px] mt-6 pl-8' />
+                <img src={StraightMobile} alt="onboardingmobile" className='md:h-[800px] md:w-[500px] md:hidden h-[500px] mt-6 pl-8' />
             </div>
             <div>
                 <h1 className='md:text-5xl text-2xl text-center md:text-left font-extrabold md:mb-8 mb-4 mt-4 md:mt-4'>3 Quick Steps To Get Started With Xelbot</h1>
@@ -84,17 +84,17 @@ const Homepage = () => {
                         <BsFillCircleFill />
                         
                     </div>
-                    <div className='flex flex-col md:space-y-12 space-y-6'>
+                    <div className='flex flex-col md:space-y-12 space-y-3'>
                         <div>
-                            <h1 className='md:text-4xl text-2xl font-bold mb-3'>Create Account</h1>
+                            <h1 className='md:text-4xl text-2xl font-bold md:mb-3 mb-1'>Create Account</h1>
                             <p className='text-base md:text-medium'>Simply open Xelbot on your brower app and proceed to create an account</p>
                         </div>
                         <div>
-                            <h1 className='md:text-4xl text-2xl font-bold mb-3'>Deposit To Wallet</h1>
+                            <h1 className='md:text-4xl text-2xl font-bold md:mb-3 mb-1'>Deposit To Wallet</h1>
                             <p className='text-base md:text-medium'>Fund your Xelbot account with our easy made funding options either by card or transfer</p>
                         </div>
                         <div>
-                            <h1 className='md:text-4xl text-2xl font-bold mb-3'>Select coin, buy and sell</h1>
+                            <h1 className='md:text-4xl text-2xl font-bold md:mb-3 mb-1'>Select coin, buy and sell</h1>
                             <p className='text-base md:text-medium'>Select your preferred coin, make purchase, sit back and enjoy assure daily abitrage profit return</p>
                         </div>
                     </div>
@@ -116,7 +116,7 @@ const Homepage = () => {
                     <PiStarFourLight className='font-extrabold text-4xl' />
                     <h1 className='md:text-6xl text-2xl font-extrabold'>Features</h1>
                 </div>
-                <div className='flex flex-col space-y-3'>
+                <div className='flex flex-col md:space-y-3 space-y-2'>
                     <div className='flex items-center space-x-8'>
                         <PiStarFourFill className='font-extrabold text-2xl' />
                         <h1 className='md:text-2xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum!</h1>
