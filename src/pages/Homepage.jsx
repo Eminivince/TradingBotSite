@@ -69,9 +69,9 @@ const Homepage = () => {
 
         <section className='on--boarding bg-white text-[#001F3E] md:mx-24 md:py-14 text-xl relative px-6 md:px-0'>
             <div className='md:flex justify-around flex md:flex-row flex-col-reverse items-center'>
-                    <div className='md:w-[60%]'>
+                    <div className='md:w-[60%] bg-teal-300'>
                 <img src={Onboarding} alt="onboardingmobile" className='md:h-[800px] md:w-[550px] hidden md:block' />
-                <img src={Procedure} alt="onboardingmobile" className='md:h-[800px] md:w-[500px] md:hidden mt-3 h-[300px]  mb-12' />
+                <img src={Procedure} alt="onboardingmobile" className='md:h-[800px] md:w-[500px] md:hidden mt-3 h-[450px] w-[100%] bg-slate-400  mb-12' />
             </div>
             <div>
                 <h1 className='md:text-5xl text-2xl text-center md:text-left font-extrabold md:mb-8 mb-4 mt-4 md:mt-4'>3 Quick Steps To Get Started With Xelbot</h1>
