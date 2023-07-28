@@ -23,7 +23,7 @@ const Homepage = () => {
             <div className='flex flex-col space-y-6 basis-3/5 mb-4'>
                 <h1 className='font-extrabold md:text-6xl text-3xl text-center md:text-left'>Welcome to Xelbot; Your Simplified And Assured 1% Daily Profit Trading Platform</h1>
                 <p className='md:text-3xl font-medium text-center md:text-left'>Effortless Ethereum-Based Arbitrage Trading Platform. Success Made Simple, Invest with ease and grow your profit.</p>
-                <button type='button' className='bg-[#001F3E] md:w-44 md:p-[20px] py-[14px] px-[30px] text-white mt-7 self-center hover:brightness-150'>
+                <button type='button' className='bg-[#001F3E] md:w-44 md:p-[20px] py-[14px] px-[30px] text-white mt-7 self-center hover:brightness-150 md:self-start'>
                     
                     <Link to='/Signup'>
                              Get Started
@@ -43,21 +43,21 @@ const Homepage = () => {
                     
                 </div>
                 
-                <div className='md:flex flex flex-col space-y-10'>
+                <div className='md:flex flex flex-col md:flex-row space-y-10 md:space-y-0'>
                     <div>
                         <div className='bg-white md:w-[85%] text-[#001F3E] font-bold md:p-14 md:space-y-4 md:mt-14 mt-4 rounded-lg md:h-[300px] h-[200px] relative px-4 md:px-0'>
                             <h1 className='md:text-5xl text-2xl pt-3 md:pt-0 text-center'>Real-Time Update</h1>
-                            <p className='text-lg text-center md:text-right mt-3 md:mt-0 mb-3 md:mb-0 md:pl-10'>Xelbot analyses market and automatically provides real time market update on various crypto currency</p>
+                            <p className='text-lg text-center md:text-center mt-3 md:mt-0 mb-3 md:mb-0'>Xelbot analyses market and automatically provides real time market update on various crypto currency</p>
                             
-                            <img src={Balance} alt="Balance" className='absolute md:left-32 h-[600px] left-10 hidden md:block' />
+                            <img src={Balance} alt="Balance" className='absolute md:left-24 h-[600px] left-10 hidden md:block' />
                         </div>
                     </div>
                     <div>
                         <div className='bg-white md:w-[85%] text-[#001F3E] font-bold md:p-14 md:space-y-4 md:mt-14 mt-4 rounded-lg md:h-[300px] h-[250px] relative px-4 md:px-0'>
                             <h1 className='md:text-5xl text-2xl pt-3 md:pt-0 text-center'>Real-Time Update</h1>
-                            <p className='text-lg text-center md:text-right mt-3 md:mt-0 mb-3 md:mb-0 md:pl-10'>Xelbot analyses market and automatically provides real time market update on various crypto currency</p>
+                            <p className='text-lg text-center md:text-center mt-3 md:mt-0 mb-3 md:mb-0'>Xelbot analyses market and automatically provides real time market update on various crypto currency</p>
                             
-                            <img src={Balance} alt="Balance" className='absolute md:left-32 md:h-[600px] h-[500px] left-[70px]' />
+                            <img src={Balance} alt="Balance" className='absolute md:left-24 md:h-[600px] h-[500px] left-[70px]' />
                         </div>
                     </div>
                     
