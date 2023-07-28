@@ -85,13 +85,17 @@ const Dashboard = () => {
             </div>
             <div className='graphnsection w-[100%] col-span-6  rounded-md shadow-xl flex flex-col space-y-4'>
                 <div className='bg-white shadow-xl h-[65%] rounded-md p-2 flex flex-col justify-between items-center'>
-                    <div className='mb-1'>Top</div>
+                    <div className='mb-1 self-start'>
+                        <div className='py-2 px-4 rounded-md text-white bg-blue-950'>
+                            Total
+                        </div>
+                    </div>
                     <div className='mb-1 flex flex-col items-center'>
                         <p className='font-medium text-gray-400'>Total Balance</p>
                         <h1 className='font-bold text-2xl'>$<span>3,600.00</span></h1>
                     </div>
 
-                    <div className='bg-blue-400 w-full'>
+                    <div className=' w-full'>
                         <Chart />
                     </div>
                     
