@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import Hand from '../assets/images/Iphonehand.png'
+import Heroimg from '../assets/images/Heroimg.png'
 import Balance from '../assets/images/Balance.png'
 import Onboarding from '../assets/images/Onboarding.png'
 import {BsFillCircleFill} from 'react-icons/bs'
@@ -31,8 +31,8 @@ const Homepage = () => {
                     
                    </button>
             </div>
-            <div className='basis-2/5'>
-                <img src={Hand} alt="tradingheroimage" className='border-black' />
+            <div className='basis-2/5 mb-4'>
+                <img src={Heroimg} alt="tradingheroimage" className='border-black' />
             </div>
         </section>
 
