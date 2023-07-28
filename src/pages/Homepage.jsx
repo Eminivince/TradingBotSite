@@ -23,7 +23,7 @@ const Homepage = () => {
             <div className='flex flex-col space-y-6 basis-3/5 mb-4'>
                 <h1 className='font-extrabold md:text-6xl text-3xl text-center md:text-left'>Welcome to Xelbot; Your Simplified And Assured 1% Daily Profit Trading Platform</h1>
                 <p className='md:text-3xl font-medium text-center md:text-left'>Effortless Ethereum-Based Arbitrage Trading Platform. Success Made Simple, Invest with ease and grow your profit.</p>
-                <button type='button' className='bg-[#001F3E] md:w-44 md:p-[20px] p-[10px] text-white mt-7 self-center hover:brightness-150'>
+                <button type='button' className='bg-[#001F3E] md:w-44 md:p-[20px] py-[14px] px-[30px] text-white mt-7 self-center hover:brightness-150'>
                     
                     <Link to='/Signup'>
                              Get Started
@@ -31,7 +31,7 @@ const Homepage = () => {
                     
                    </button>
             </div>
-            <div className='basis-2/5 mb-4'>
+            <div className='basis-2/5 mb-10 mt-10'>
                 <img src={Heroimg} alt="tradingheroimage" className='border-black' />
             </div>
         </section>
@@ -71,16 +71,16 @@ const Homepage = () => {
             <div className='md:flex justify-around flex md:flex-row flex-col-reverse items-center'>
                     <div className='w-[60%]'>
                 <img src={Onboarding} alt="onboardingmobile" className='md:h-[800px] md:w-[550px] hidden md:block' />
-                <img src={StraightMobile} alt="onboardingmobile" className='md:h-[800px] md:w-[500px] md:hidden mt-6' />
+                <img src={StraightMobile} alt="onboardingmobile" className='md:h-[800px] md:w-[500px] md:hidden h-[300px] mt-6 pl-8' />
             </div>
             <div>
                 <h1 className='md:text-5xl text-2xl text-center md:text-left font-extrabold md:mb-8 mb-4 mt-4 md:mt-4'>3 Quick Steps To Get Started With Xelbot</h1>
                 <div className='flex space-x-5'>
-                    <div className='designn flex flex-col justify-around md:text-5xl text-xl'>
+                    <div className='designn hidden md:flex flex-col md:justify-around md:text-5xl text-xl'>
+                        <BsFillCircleFill/>
+                        <div className='md:h-20 border-2 md:w-fit md:self-center border-[#001F3E] '/>
                         <BsFillCircleFill />
-                        <div className='md:h-20 border-2 w-fit self-center border-[#001F3E] '/>
-                        <BsFillCircleFill />
-                        <div className='md:h-20 border-2 w-fit self-center border-[#001F3E] '/>
+                        <div className='md:h-20 border-2 md:w-fit md:self-center border-[#001F3E] '/>
                         <BsFillCircleFill />
                         
                     </div>
