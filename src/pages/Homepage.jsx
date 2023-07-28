@@ -21,8 +21,8 @@ const Homepage = () => {
 
 
             <div className='flex flex-col space-y-6 basis-3/5 mb-4'>
-                <h1 className='font-extrabold md:text-6xl text-3xl'>Welcome to Xelbot - <br />Your Simplified And Assured 1% Daily Profit Trading Platform</h1>
-                <p className='md:text-3xl font-medium'>Effortless Ethereum-Based Arbitrage Trading Platform. Success Made Simple, Invest with ease and grow your profit.</p>
+                <h1 className='font-extrabold md:text-6xl text-3xl text-center md:text-left'>Welcome to Xelbot; Your Simplified And Assured 1% Daily Profit Trading Platform</h1>
+                <p className='md:text-3xl font-medium text-center md:text-left'>Effortless Ethereum-Based Arbitrage Trading Platform. Success Made Simple, Invest with ease and grow your profit.</p>
                 <button type='button' className='bg-[#001F3E] md:w-44 md:p-[20px] p-[10px] text-white mt-7 self-center hover:brightness-150'>
                     
                     <Link to='/Signup'>
@@ -32,7 +32,7 @@ const Homepage = () => {
                    </button>
             </div>
             <div className='basis-2/5'>
-                <img src={Hand} alt="tradingheroimage" className='border-2 border-black' />
+                <img src={Hand} alt="tradingheroimage" className='border-black' />
             </div>
         </section>
 
@@ -45,7 +45,7 @@ const Homepage = () => {
                 
                 <div className='md:flex flex flex-col space-y-10'>
                     <div>
-                        <div className='bg-white md:w-[85%] text-[#001F3E] font-bold md:p-14 md:space-y-4 md:mt-14 mt-4 rounded-lg md:h-[300px] h-[250px] relative px-4 md:px-0'>
+                        <div className='bg-white md:w-[85%] text-[#001F3E] font-bold md:p-14 md:space-y-4 md:mt-14 mt-4 rounded-lg md:h-[300px] h-[200px] relative px-4 md:px-0'>
                             <h1 className='md:text-5xl text-3xl pt-3 md:pt-0 text-center'>Real-Time Update</h1>
                             <p className='text-xl text-center md:text-right mt-3 md:mt-0 mb-3 md:mb-0 md:pl-10'>Xelbot analyses market and automatically provides real time market update on various crypto currency</p>
                             
@@ -75,7 +75,7 @@ const Homepage = () => {
             </div>
             <div>
                 <h1 className='md:text-5xl text-2xl text-center md:text-left font-extrabold md:mb-8 mb-4 mt-4 md:mt-4'>3 Quick Steps To Get Started With Xelbot</h1>
-                <div className='flex md:space-x-5 space-x-3'>
+                <div className='flex space-x-5'>
                     <div className='designn flex flex-col justify-around md:text-5xl text-xl'>
                         <BsFillCircleFill />
                         <div className='md:h-20 border-2 w-fit self-center border-[#001F3E] '/>
@@ -86,22 +86,22 @@ const Homepage = () => {
                     </div>
                     <div className='flex flex-col md:space-y-12 space-y-6'>
                         <div>
-                            <h1 className='md:text-4xl text-3xl font-bold mb-3'>Create Account</h1>
-                            <p className='text-base md:text-medium'>simply open Xelbot on your brower app and proceed to create an account</p>
+                            <h1 className='md:text-4xl text-2xl font-bold mb-3'>Create Account</h1>
+                            <p className='text-base md:text-medium'>Simply open Xelbot on your brower app and proceed to create an account</p>
                         </div>
                         <div>
-                            <h1 className='md:text-4xl text-3xl font-bold mb-3'>Deposit To Wallet</h1>
+                            <h1 className='md:text-4xl text-2xl font-bold mb-3'>Deposit To Wallet</h1>
                             <p className='text-base md:text-medium'>Fund your Xelbot account with our easy made funding options either by card or transfer</p>
                         </div>
                         <div>
-                            <h1 className='md:text-4xl text-3xl font-bold mb-3'>Select coin, buy and sell</h1>
+                            <h1 className='md:text-4xl text-2xl font-bold mb-3'>Select coin, buy and sell</h1>
                             <p className='text-base md:text-medium'>Select your preferred coin, make purchase, sit back and enjoy assure daily abitrage profit return</p>
                         </div>
                     </div>
                 </div>
             </div>
             </div>
-            <img src={Undercloud} alt='pagebreak' className='absolute bottom-0' />
+            <img src={Undercloud} alt='pagebreak' className=' absolute bottom-0 left-0' />
 
             
         </section>
@@ -111,31 +111,31 @@ const Homepage = () => {
                 <img src={Ellipse} alt="ellipse" className='md:h-[900px]' />
                 <img src={Currency} alt='currency' className='absolute md:top-56 top-0 md:left-16'/>
             </div>
-            <div className='flex flex-col mt-6 md:mt-0'>
-                <div className='flex items-center mb-8 space-x-5'>
+            <div className='flex flex-col mt-6 md:mt-0 mx-auto'>
+                <div className='flex items-center md:mb-8 mb-4 space-x-5'>
                     <PiStarFourLight className='font-extrabold text-4xl' />
-                    <h1 className='md:text-6xl text-3xl font-extrabold'>Features</h1>
+                    <h1 className='md:text-6xl text-2xl font-extrabold'>Features</h1>
                 </div>
                 <div className='flex flex-col space-y-3'>
                     <div className='flex items-center space-x-8'>
                         <PiStarFourFill className='font-extrabold text-2xl' />
-                        <h1 className='md:text-2xl text-xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum!</h1>
+                        <h1 className='md:text-2xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum!</h1>
                     </div>
                     <div className='flex items-center space-x-8'>
                         <PiStarFourFill className='font-extrabold text-2xl' />
-                        <h1 className='md:text-2xl text-xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum!</h1>
+                        <h1 className='md:text-2xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum!</h1>
                     </div>
                     <div className='flex items-center space-x-8'>
                         <PiStarFourFill className='font-extrabold text-2xl' />
-                        <h1 className='md:text-2xl text-xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum!</h1>
+                        <h1 className='md:text-2xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum!</h1>
                     </div>
                     <div className='flex items-center space-x-8'>
                         <PiStarFourFill className='font-extrabold text-2xl' />
-                        <h1 className='md:text-2xl text-xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum!</h1>
+                        <h1 className='md:text-2xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum!</h1>
                     </div>
                     <div className='flex items-center space-x-8'>
                         <PiStarFourFill className='font-extrabold text-2xl' />
-                        <h1 className='md:text-2xl text-xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum!</h1>
+                        <h1 className='md:text-2xl'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum!</h1>
                     </div>
                 </div>
             </div>
