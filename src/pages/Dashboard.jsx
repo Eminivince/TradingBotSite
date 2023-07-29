@@ -13,40 +13,40 @@ import Footer from '../components/Footer'
 
 const Dashboard = () => {
   return (
-    <div className='bg-slate-300'>
+    <div className='bg-slate-300 h-[120vh]'>
         <div className='bg-white'>
                 <Navbar />
         </div>
         
-        <header className='px-24 grid grid-cols-8 gap-3 justify-between space-x-5 mt-6'>
-            <div className='profile w-[100%] rounded-md flex items-center col-span-2 shadow-xl bg-white justify-around cursor-pointer'>
+        <header className='md:px-24 md:grid md:grid-cols-8 md:gap-3 justify-between md:space-x-5 mt-6 flex px-2'>
+            <div className='profile w-[100%] rounded-md md:flex items-center col-span-2 shadow-xl bg-white justify-around cursor-pointer hidden'>
                 <img src={Avatar} alt='ProfilePic' className='w-12 hover:animate-pulse duration-300'/>
                 <div className='flex flex-col items-center'>
                     <p className='font-bold text-2xl'>Hi David,</p>
                     <p className='font-semibold text-gray-600 text-sm hover:underline'>ayomidedavid@gmail.com </p>
                 </div>
             </div>
-            <div className='balancce w-[100%] rounded-md col-span-3 flex justify-between font-bold items-center px-4 shadow-xl bg-black text-white'>
-                <MdAccountBalanceWallet className='text-3xl'/>
+            <div className='balancce w-[49%] rounded-md md:col-span-3 flex justify-between font-bold items-center px-4 shadow-xl bg-black text-white py-6 md:py-0'>
+                <MdAccountBalanceWallet className='md:text-3xl'/>
                 <div className='flex flex-col items-center'>
-                    <p>Wallet balance</p>
-                    <p className='text-2xl'>$5,200</p>
-                    <p>1% Monthly Growth</p>
+                    <p className='text-xs'>Wallet balance</p>
+                    <p className='md:text-2xl'>$5,200</p>
+                    <p className='hidden md:block'>1% Monthly Growth</p>
                 </div>
-                <h1 className='text-4xl'>75%</h1>
+                <h1 className='md:text-4xl'>75%</h1>
             </div>
-            <div className='balancce w-[100%] rounded-md col-span-3 flex justify-between font-bold items-center px-4 shadow-xl bg-green-700 text-white'>
-                 <BsFillRocketTakeoffFill className='text-3xl'/>
+            <div className='balancce w-[49%] rounded-md md:col-span-3 flex justify-between font-bold items-center px-4 shadow-xl bg-green-700 text-white py-6 md:py-0'>
+                 <BsFillRocketTakeoffFill className='md:text-3xl'/>
                 <div className='flex flex-col items-center'>
-                    <p>Pending Trade</p>
-                    <p className='text-2xl'>$3,600</p>
-                    <p>1% Monthly Growth</p>
+                    <p className='text-xs'>Pending Trade</p>
+                    <p className='md:text-2xl'>$3,600</p>
+                    <p className='hidden md:block'>1% Monthly Growth</p>
                 </div>
-                <h1 className='text-4xl'>25%</h1>
+                <h1 className='md:text-4xl'>25%</h1>
             </div>
         </header>
         <main className='px-24 mt-6 grid grid-cols-8 space-x-6 justify-between'>
-            <div className='sidebarr bg-white rounded-md w-[98%] col-span-2 shadow-xl'>
+            <div className='sidebarr bg-white rounded-md w-[98%] col-span-2 shadow-xl hidden md:block'>
                 <div className='mb-14'>
                     <Link to='/Dashboard'>
                             <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium bg-slate-400 cursor-pointer duration-300'>
@@ -112,7 +112,7 @@ const Dashboard = () => {
                     </div>
                     
                 </div>
-                <div className='btm--info flex w-[100%] h-[35%] space-x-6'>
+                <div className='btm--info md:flex w-[100%] h-[35%] space-x-6 hidden'>
                     <div className='buy bg-white shadow-xl w-[100%] rounded-md h-[100%] flex flex-col items-center space-y-5 pt-4 font-semibold'>
                         <div className='flex space-x-4 w-fit'>
                             <button type='button' className='border border-blue-950 py-2 px-7'>Buy</button>
@@ -126,9 +126,7 @@ const Dashboard = () => {
                 </div>
             </div>
         </main>
-        <div className='mt-8'>
-                <Footer />
-        </div>
+        
         
     </div>
   )
