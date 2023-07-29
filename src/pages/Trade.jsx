@@ -58,12 +58,10 @@ const Trade = () => {
                             <p>Dashboard</p>
                             </div>
                     </Link>
-                <Link to='/Deposit'>
-                            <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400 cursor-pointer duration-300'>
-                            <FaMoneyCheck className='text-4xl text-blue-950'/>
-                            <p>Deposit</p>
-                            </div>
-                    </Link>
+                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400 cursor-pointer duration-300'>
+                    <FaMoneyCheck className='text-4xl text-blue-950'/>
+                    <p>Deposit</p>
+                </div>
                 <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400 cursor-pointer duration-300'>
                     <AiFillCreditCard className='text-4xl text-blue-950'/>
                     <p>Withdrawal</p>

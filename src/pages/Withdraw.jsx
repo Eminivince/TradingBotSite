@@ -13,7 +13,7 @@ import Footer from '../components/Footer'
 import {SlArrowUp, SlArrowDown} from 'react-icons/sl'
 import Attention from '../assets/images/attantion.png'
 
-const Deposit = () => {
+const Withdraw = () => {
     const [isTypeOpen, setIsTypeOpen] = useState(true)
     const [isCoinOpen, setIsCoinOpen] = useState(true)
     const [isNetworkOpen, setIsNetworkOpen] = useState(true)
@@ -99,7 +99,7 @@ const Deposit = () => {
                 
             </div>
             <div className='graphnsection rounded-md w-[100%] col-span-6'>
-                <h1 className='bg-white w-full p-4 rounded-md font-bold text-xl text-center text-gray-600 mb-4 shadow-xl'>Deposit</h1>
+                <h1 className='bg-white w-full p-4 rounded-md font-bold text-xl text-center text-gray-600 mb-4 shadow-xl'>Withdraw</h1>
                 <div className='bg-white shadow-xl p-10 rounded-md'>
                     <div className='flex w-full justify-between space-x-20'>
                         <div className='w-full'>
@@ -160,18 +160,38 @@ const Deposit = () => {
                                 
                             </div>
                         </div>
-                </div>
-                <div className='flex space-x-14 mt-6 bg-white p-10 rounded-md shadow-xl font-medium'>
-                    <img src={Attention} alt="warning" className='w-32' />
-                    <div className='flex flex-col space-y-2'>
-                        <p>Send only USDT to this address. Ensure the network is <span className='text-blue-900'>Binance Smart Chain (BEP20).</span></p>
-                        <p className='text-gray-600'>Minimun Deposit <span className='text-black font-bold'><br />100 USDT</span></p>
-                        <p className='text-gray-600'>Expected arrival & Unlock <span className='text-black font-bold'><br />15 Network Confirmations</span></p>
-                        <p className='pt-3 text-green-500'>0x4cc5B1fFeD90C5f3bAe33178316A5FF56E2BC702</p>
-                    </div>
-                </div>
+                    <div className='w-full mt-6'>
+                            <h1 className='font-bold text-lg mb-1'>Wallet Address</h1>
+                            <div>
+                                <input className='bg-slate-300 shadow-xl p-4 flex items-center w-full rounded-md justify-between font-bold' placeholder='Paste Your Wallet Address here'/>
+                                
+                            </div>
+                        </div>
 
-
+                        
+                        <div className='flex flex-col'>
+                            <div><div className='flex space-x-20'>
+                            <div className='w-full mt-6'>
+                            <h1 className='font-bold text-lg mb-1'>Amount</h1>
+                            <div>
+                                <input className='bg-slate-300 shadow-xl p-4 flex items-center w-full rounded-md justify-between font-bold' placeholder='Enter Amount' type='text'/>
+                                
+                            </div>
+                        </div>
+                        <div className='w-full mt-6'>
+                            <h1 className='font-bold text-lg mb-1'>Password</h1>
+                            <div>
+                                <input className='bg-slate-300 shadow-xl p-4 flex items-center w-full rounded-md justify-between font-bold' placeholder='Enter Your Password' type='password'/>
+                                
+                            </div>
+                        </div>
+                        </div>
+                        
+</div>
+                            <button type='submit' className='self-center mt-7 bg-green-700 text-white shadow-xl py-4 px-10 flex items-center rounded-md font-bold'>Withdraw</button>
+                        </div>
+                </div>
+                
                 
                 
             </div>
@@ -183,4 +203,4 @@ const Deposit = () => {
   )
 }
 
-export default Deposit
+export default Withdraw

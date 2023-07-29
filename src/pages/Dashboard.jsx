@@ -61,11 +61,12 @@ const Dashboard = () => {
                             </div>
                     </Link>
                     
-                
-                <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400 cursor-pointer duration-300'>
+                <Link to='/Withdraw'>
+                    <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400 cursor-pointer duration-300'>
                     <AiFillCreditCard className='text-4xl text-blue-950'/>
-                    <p>Withdrawal</p>
-                </div>
+                        <p>Withdraw</p>
+                    </div>
+                </Link>
                 <Link to='/Trade'>
                     <div className='flex items-center space-x-6 m-3 p-2 rounded-md text-xl font-medium hover:bg-slate-400 cursor-pointer duration-300'>
                     <MdSpaceDashboard className='text-4xl text-blue-950'/>
