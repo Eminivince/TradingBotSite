@@ -4,7 +4,7 @@ import { BsTelegram, BsDiscord, BsLinkedin } from 'react-icons/bs'
 
 const Footer = () => {
   return (
-    <div className='bg-[#001F3E] md:h-20 text-white'>
+    <div className='bg-[#001F3E] md:h-14 text-white'>
         <div className='md:px-24 px-6 flex justify-between items-center md:pt-6 pt-3 md:pb-0 pb-3'>
             <p className='text-xs'>Xelbot 2023. All rights reserved.</p>
             
