@@ -22,9 +22,9 @@ const Login = () => {
                 <div className='mb-2'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </div>
                 <button type='submit' className='bg-[#001F3E] p-4 rounded-md text-white hover:brightness-150 duration-300'>Login</button>
             </form>
-            <h1 className='text-right mb-8 text-gray-500'>Already have an account? 
-            <Link to='/Login'>
-                <span className='text-[#001F3E] cursor-pointer'> Log in</span>
+            <h1 className='text-right mb-8 text-gray-500'>Don't have an account? 
+            <Link to='/Signup'>
+                <span className='text-[#001F3E] cursor-pointer'> Sign Up</span>
             </Link>
             </h1>
             <div className='relative'>

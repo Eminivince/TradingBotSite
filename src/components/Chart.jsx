@@ -1,6 +1,6 @@
 import React from 'react'
-import {Chart as ChartJS, LineElement, PointElement, CategoryScale, LinearScale, Colors} from 'chart.js';
 import {Line} from 'react-chartjs-2';
+import {Chart as ChartJS, LineElement, PointElement, CategoryScale, LinearScale, Colors} from 'chart.js';
 
 
 
@@ -45,7 +45,7 @@ const Chart = () => {
     <div>
         <Line 
             data={data}
-            height={200}
+            height={400}
             options={options}
         />
 
