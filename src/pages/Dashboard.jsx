@@ -40,7 +40,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="bg-slate-300 h-[120vh] relative">
+    <div className="bg-slate-300 md:h-[120vh] h-[105vh] relative">
       <div className="bg-white">
         <Navbar />
       </div>
