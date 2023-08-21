@@ -19,10 +19,10 @@ import Footer from "../components/Footer";
 
 const Dashboard = () => {
   const navElements = [
-    // {
-    //   name: "Dashboard",
-    //   image: MdSpaceDashboard,
-    // },
+    {
+      name: "Dashboard",
+      image: Deposit,
+    },
     {
       name: "Deposit",
       image: Deposit,
@@ -46,7 +46,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="bg-slate-300 md:h-[120vh] h-[105vh] relative">
+    <div className="bg-slate-300 md:h-[150vh] h-[105vh] relative">
       <div className="bg-white">
         <Navbar />
       </div>
@@ -108,7 +108,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="graphnsection w-[100%]md:col-span-6  rounded-md shadow-xl flex flex-col md:space-y-4">
+          <div className="graphnsection w-[100%] md:col-span-6  rounded-md md:shadow-xl flex flex-col md:space-y-4">
             <div className="bg-white shadow-xl md:h-[65%] mx-4 rounded-md p-2 flex flex-col md:justify-between items-center">
               <div className="mb-4 self-start">
                 <div className="py-2 px-4 rounded-md text-white bg-blue-950">
@@ -122,7 +122,7 @@ const Dashboard = () => {
                 </h1>
               </div>
 
-              <div className=" w-full h-full ">
+              <div className=" w-full h-full bg-slate-400 md:h-40 rounded-lg p-2 ">
                 <Chart />
               </div>
             </div>
@@ -145,7 +145,7 @@ const Dashboard = () => {
                 TX
               </div>
             </div>
-            <div className="flex flex-row bg-slate-700 h-[80px] w-screen justify-between items-center  bottom-0 fixed px-3">
+            <div className="flex flex-row bg-slate-900 h-[80px] w-screen justify-between items-center  bottom-0 fixed px-3 text-sm md:hidden">
               {navElements.map((element, index) => (
                 <Link key={index} to={`/${element.name}`}>
                   <div className="flex flex-col text-white items-center   cursor-pointer duration-300 h-[100%]">
