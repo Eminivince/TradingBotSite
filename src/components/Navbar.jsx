@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Avatar from '../assets/images/Avatar.png'
 
 const Navbar = () => {
   return (
@@ -20,6 +21,10 @@ const Navbar = () => {
                 <li className='cursor-pointer hover:underline'><a href=""></a>Features</li>
                 <li className='cursor-pointer hover:underline'><a href=""></a>Contact Us</li>
             </ul>
+            <div className='md:hidden block'>
+              <img src={Avatar} alt="avatar" />
+            </div>
+          
         </nav>
         
         </>
