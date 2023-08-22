@@ -27,12 +27,12 @@ const Deposit = () => {
 
 
   return (
-    <div className='bg-slate-300 w-[100vw] h-[110vh] relative'>
+    <div className='bg-slate-300 w-[100vw] md:h-[150vh] h-[110vh] relative'>
         <div className='bg-white'>
                 <Navbar />
         </div>
         
-        <header className='md:px-24 md:grid md:grid-cols-8 md:gap-3 flex justify-between md:space-x-2 mt-6 mx-auto w-[96vw]'>
+        <header className='md:px-24 md:grid md:grid-cols-8 md:gap-3 flex justify-between md:space-x-5 mt-6 mx-auto md:w-full w-[96vw]'>
             <div className='profile w-[100%] rounded-md md:flex items-center col-span-2 shadow-xl bg-white justify-around cursor-pointer hidden'>
                 <img src={Avatar} alt='ProfilePic' className='w-12 hover:animate-pulse duration-300'/>
                 <div className='flex flex-col items-center'>
@@ -105,7 +105,7 @@ const Deposit = () => {
             </div>
             <div className='rounded-md w-[100%] md:col-span-6'>
                 <h1 className='bg-white md:w-full p-4 w-[96vw] mx-auto  rounded-md font-bold text-xl text-center text-gray-600 mb-4 shadow-xl'>Deposit</h1>
-                <div className='bg-white shadow-xl md:p-10 rounded-md w-[96vw] mx-auto p-4'>
+                <div className='bg-white shadow-xl md:p-10 rounded-md w-[96vw] md:w-full mx-auto p-4'>
                     <div className='flex w-full justify-between space-x-20'>
                         <div className='w-full'>
                             <h1 className='font-bold text-lg mb-1'>Select Type</h1>
@@ -166,7 +166,7 @@ const Deposit = () => {
                             </div>
                         </div>
                 </div>
-                <div className='flex md:space-x-14 space-x-4 mt-6 bg-white md:p-10 p-4 items-center mx-auto  rounded-md shadow-xl font-medium w-[96vw]'>
+                <div className='flex md:space-x-14 space-x-4 mt-6 bg-white md:p-10 p-4 items-center mx-auto  rounded-md shadow-xl font-medium w-[96vw] md:w-full'>
                     <img src={Attention} alt="warning" className='md:w-32 w-20' />
                     <div className='flex flex-col space-y-2 w-[65vw]'>
                         <p>Send only USDT to this address. Ensure the network is <span className='text-blue-900'>Binance Smart Chain (BEP20).</span></p>
