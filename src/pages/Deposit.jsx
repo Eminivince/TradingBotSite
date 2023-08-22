@@ -27,7 +27,7 @@ const Deposit = () => {
 
 
   return (
-    <div className='bg-slate-300 w-[100vw] h-[105vh] relative'>
+    <div className='bg-slate-300 w-[100vw] h-[110vh] relative'>
         <div className='bg-white'>
                 <Navbar />
         </div>
