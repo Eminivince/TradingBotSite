@@ -15,35 +15,36 @@ import Transactions from "../assets/images/Transactions.png";
 import Chart from "../components/Chart";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import { MobileNav } from "../components/MobileNav";
 
 
 const Dashboard = () => {
-  const navElements = [
-    {
-      name: "Dashboard",
-      image: Deposit,
-    },
-    {
-      name: "Deposit",
-      image: Deposit,
-    },
-    {
-      name: "Withdraw",
-      image: Withdraw,
-    },
-    {
-      name: "Trade",
-      image: Arbitrage,
-    },
-    {
-      name: "Transactions",
-      image: Transactions,
-    },
-    {
-      name: "Earn",
-      image: Earn,
-    },
-  ];
+    const navElements = [
+        {
+          name: "Dashboard",
+          image: Deposit,
+        },
+        {
+          name: "Deposit",
+          image: Deposit,
+        },
+        {
+          name: "Withdraw",
+          image: Withdraw,
+        },
+        {
+          name: "Trade",
+          image: Arbitrage,
+        },
+        {
+          name: "Transactions",
+          image: Transactions,
+        },
+        {
+          name: "Earn",
+          image: Earn,
+        },
+      ];
 
   return (
     <div className="bg-slate-300 md:h-[150vh] h-[105vh] relative">
@@ -145,16 +146,7 @@ const Dashboard = () => {
                 TX
               </div>
             </div>
-            <div className="flex flex-row bg-slate-900 h-[80px] w-screen justify-between items-center  bottom-0 fixed px-3 text-sm md:hidden">
-              {navElements.map((element, index) => (
-                <Link key={index} to={`/${element.name}`}>
-                  <div className="flex flex-col text-white items-center   cursor-pointer duration-300 h-[100%]">
-                    <img src={element.image} alt={`${element.name}`} className="w-8 h-8 text-blue-950" />
-                    <p>{element.name}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <MobileNav />
           </div>
         </main>
       </div>
