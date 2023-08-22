@@ -18,12 +18,12 @@ const Trade = () => {
 
 
   return (
-    <div className='bg-slate-300 pb-8 relative h-[110vh]'>
+    <div className='bg-slate-300 pb-8 relative h-[110vh] md:h-[150vh]'>
         <div className='bg-white'>
                 <Navbar />
         </div>
         
-        <header className='md:px-24 md:grid md:grid-cols-8 md:gap-3 flex justify-between md:space-x-5 mt-6 w-[96vw] mx-auto'>
+        <header className='md:px-24 md:grid md:grid-cols-8 md:gap-3 flex justify-between md:space-x-5 mt-6 w-[96vw] md:w-full mx-auto'>
             <div className='profile w-[100%] rounded-md md:flex items-center col-span-2 shadow-xl bg-white justify-around cursor-pointer hidden'>
                 <img src={Avatar} alt='ProfilePic' className='w-12 hover:animate-pulse duration-300'/>
                 <div className='flex flex-col items-center'>
