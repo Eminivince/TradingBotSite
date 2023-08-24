@@ -14,7 +14,6 @@ import Arbitrage from "../assets/images/Arbitrage.png";
 import Transactions from "../assets/images/Transactions.png";
 import Chart from "../components/Chart";
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
 import { MobileNav } from "../components/MobileNav";
 
 

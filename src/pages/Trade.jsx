@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 import Navbar from '../components/Navbar'
 import Hand from '../assets/images/Iphonehand.png'
 import {MdSpaceDashboard, MdAccountBalanceWallet, MdSwapHorizontalCircle } from 'react-icons/md'
@@ -13,6 +14,8 @@ import Footer from '../components/Footer'
 import { MobileNav } from '../components/MobileNav'
 
 const Trade = () => {
+
+    
 
  
 
