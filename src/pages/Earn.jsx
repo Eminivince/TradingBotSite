@@ -114,7 +114,7 @@ const Earn = () => {
                         <div>
                             <form action="" className='flex flex-col space-y-2'>
                                 <label htmlFor="ref--link">Referal Link</label>
-                                <input type="text" id='ref--link' placeholder='http://www.example.com' className='p-3 rounded-xl bg-gray-500'/>
+                                <input type="text" id='ref--link' placeholder='http://www.example.com' className='p-3 rounded-xl bg-gray-500 outline-none'/>
                             </form>
                         </div>
                         <button type='button' className='mt-8 cursor-pointer border py-2 px-5 rounded-xl'>Wallet</button>

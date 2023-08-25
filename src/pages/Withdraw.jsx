@@ -4,7 +4,7 @@ import Hand from '../assets/images/Iphonehand.png'
 import {MdSpaceDashboard, MdAccountBalanceWallet, MdSwapHorizontalCircle } from 'react-icons/md'
 import { BsFillRocketTakeoffFill } from 'react-icons/bs'
 import {FaMoneyCheck} from 'react-icons/fa'
-import { AiFillCreditCard, AiFillQuestionCircle } from 'react-icons/ai'
+import { AiFillCheckCircle, AiFillCreditCard, AiFillQuestionCircle } from 'react-icons/ai'
 import { RiLogoutBoxRLine} from 'react-icons/ri'
 import Avatar from '../assets/images/Avatar.png'
 import Chart from '../components/Chart'
@@ -18,12 +18,16 @@ const Withdraw = () => {
     const [isTypeOpen, setIsTypeOpen] = useState(true)
     const [isCoinOpen, setIsCoinOpen] = useState(true)
     const [isNetworkOpen, setIsNetworkOpen] = useState(true)
+    const [haswithdrawn, setHasWithdrawn] = useState(true)
+
+    const toggleHasWithdrawn = () => setHasWithdrawn(prevHasWithdrawn => !prevHasWithdrawn)
 
  
 
 
   return (
-    <div className='bg-slate-300 h-[110vh] absolute w-[100vw] md:h-[150vh]'>
+    <div className='bg-slate-300 min-h-[110vh] absolute w-[100vw] md:h-[150vh]'>
+        
         <div className='bg-white'>
                 <Navbar />
         </div>
@@ -101,6 +105,7 @@ const Withdraw = () => {
             </div>
             <div className='rounded-md w-[100%] md:col-span-6'>
                 <h1 className='bg-white md:w-full p-4 rounded-md font-bold text-xl text-center text-gray-600 mb-4 shadow-xl w-[96vw] mx-auto'>Withdraw</h1>
+                { haswithdrawn &&
                 <div className='bg-white shadow-xl md:p-10 p-4 mx-auto rounded-md w-[96vw] md:w-full'>
                     <div className='flex w-full justify-between md:space-x-20 space-x-5'>
                         <div className='w-full'>
@@ -189,9 +194,20 @@ const Withdraw = () => {
                         </div>
                         
 </div>
-                            <button type='submit' className='self-center mt-7 bg-green-700 text-white shadow-xl py-4 px-10 flex items-center rounded-md font-bold'>Withdraw</button>
+                            <button type='submit' className='self-center mt-7 bg-green-700 text-white shadow-xl py-4 px-10 flex items-center rounded-md font-bold' onClick={toggleHasWithdrawn}>Withdraw</button>
                         </div>
                 </div>
+                }
+                {haswithdrawn ? (<div></div>) : 
+        (<div className='w-[96vw] md:w-full bg-white mx-auto pt-10 pb-6 px-6 mt-4 rounded-lg flex flex-col justify-center text-center md:relative md:top-0'>
+            <div className='text-8xl text-green-800 mx-auto mb-5'>
+            <AiFillCheckCircle />
+            </div>
+            <h1 className='text-4xl font-bold mb-3'>Withdrawal Request Submitted</h1>
+            <p className='mb-5'>Your withdrawal request is being processed and should be expected to arrive within 30 minutes</p>
+            <button type='button' className='bg-slate-800 rounded-lg text-white py-2' onClick={toggleHasWithdrawn}>Back</button>
+            
+        </div>)}
                 
                 
                 
@@ -200,6 +216,9 @@ const Withdraw = () => {
         <div className='mt-8 absolute bottom-0 w-full'>
                 <MobileNav />
         </div>
+
+        {/* Withdraw Modal */}
+        
     </div>
   )
 }
