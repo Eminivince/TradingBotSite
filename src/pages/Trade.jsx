@@ -1,3 +1,34 @@
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Navbar from "../components/Navbar";
@@ -16,28 +47,68 @@ import Chart from "../components/Chart";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { MobileNav } from "../components/MobileNav";
+import axios from 'axios';
 
 const Trade = () => {
+  
+const [data, setData] = useState({});
 
-    
-      
+  const updateSimulatedPrice = (price) => {
+    const randomPercent = ((Math.random() * (0.01 - 0.002)) + 0.002) / 100;
+    return price + price * randomPercent;
+  };
 
-      
+  const fetchPriceAndVolume = async (exchange, url, pricePath, volumePath) => {
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
 
-      
+      let price = pricePath.split('.').reduce((obj, key) => obj && obj[key], result);
+      const volume = volumePath.split('.').reduce((obj, key) => obj && obj[key], result);
 
+      setData((prev) => ({
+        ...prev,
+        [exchange]: {
+          price: parseFloat(price).toFixed(2),
+          volume
+        }
+      }));
+    } catch (error) {
+      console.error(`Error fetching from ${exchange}: `, error);
+    }
+  };
 
-     
-      
+  const calculateDifference = (priceA, priceB) => {
+    const diff = ((priceB - priceA) / priceA) * 100;
+    return diff.toFixed(2);
+  };
 
-      
+  useEffect(() => {
+    fetchPriceAndVolume('Binance', 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT', 'lastPrice', 'volume');
+    fetchPriceAndVolume('Coinbase', 'https://api.coinbase.com/v2/prices/spot?currency=USD', 'data.amount', 'data.volume');
+    // ... add fetch for other exchanges
 
-      
-      
-      
+    const interval = setInterval(() => {
+      setData((prevData) => {
+        const updatedData = {};
+        for (const exchange in prevData) {
+          const newPrice = updateSimulatedPrice(parseFloat(prevData[exchange].price));
+          updatedData[exchange] = {
+            ...prevData[exchange],
+            price: newPrice.toFixed(2)
+          };
+        }
+        return updatedData;
+      });
+    }, 700);
 
-    
-    
+    // Clean up the interval
+    return () => clearInterval(interval);
+  }, []);
+
+  const exchanges = Object.keys(data);
+  
+   
   return (
     <div className="bg-slate-300 pb-8 relative h-[110vh] md:h-[150vh]">
       <div className="bg-white">
@@ -136,6 +207,36 @@ const Trade = () => {
                 Sell At
               </div>
             </div>
+
+            <div className="w-full px-4">
+
+            {
+    exchanges.map((exchangeA, idxA) => 
+        exchanges.slice(idxA + 1).map(exchangeB => (
+            <div key={`${exchangeA}-${exchangeB}`} className="flex justify-between w-full">
+                <div className="flex flex-col">
+                    <h1>{calculateDifference(data[exchangeA].price, data[exchangeB].price)}%</h1>
+                    <h1>BTC/ETH</h1>
+                </div>
+                <div className="flex flex-col">
+                    <h1>{exchangeA}</h1>
+                    <h1>${data[exchangeA].price}</h1>
+                </div>
+                <div className="flex flex-col">
+                    <h1>{exchangeB}</h1>
+                    <h1>${data[exchangeB].price}</h1>
+                </div>
+            </div>
+        ))
+    )
+}
+
+    </div>
+
+
+
+            
+            
 
            
             
