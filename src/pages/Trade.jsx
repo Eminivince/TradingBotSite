@@ -64,10 +64,10 @@ const Trade = () => {
   };
   
   useEffect(() => {
-    const binanceExchanges = ['UniPool', 'KucPool', 'BinPool'];
+    const binanceExchanges = ['UniPool', 'KucPool', 'BinPool', 'HubPool'];
     fetchPriceAndSetForExchanges(binanceExchanges, 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT', 'lastPrice', 'Binance');
   
-    const kucoinExchanges = ['OkPool', 'KrakPool', 'HubPool'];
+    const kucoinExchanges = ['OkPool', 'KrakPool', 'HubPool', 'PoolA'];
     fetchPriceAndSetForExchanges(kucoinExchanges, 'YOUR_KUCOIN_ENDPOINT_HERE', 'YOUR_KUCOIN_PRICE_PATH_HERE', 'Kucoin');
     
     const interval = setInterval(() => {
@@ -197,9 +197,9 @@ const Trade = () => {
             {
     exchanges.map((exchangeA, idxA) => 
         exchanges.slice(idxA + 1).map(exchangeB => (
-            <div key={`${exchangeA}-${exchangeB}`} className="flex justify-between w-full mb-2 border border-slate-500 p-2 rounded-lg hover:cursor-pointer hover:bg-slate-300">
+            <div key={`${exchangeA}-${exchangeB}`} className="flex justify-between w-full mb-2 border-2 border-slate-500 p-2 rounded-lg hover:cursor-pointer hover:bg-slate-300">
                 <div className="flex flex-col">
-                    <h1>{calculateDifference(data[exchangeA].price, data[exchangeB].price)}%</h1>
+                    <h1 className="font-semibold">{calculateDifference(data[exchangeA].price, data[exchangeB].price)}%</h1>
                     <h1>BTC/ETH</h1>
                 </div>
                 <div className="flex flex-col">
