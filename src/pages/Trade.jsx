@@ -1,34 +1,3 @@
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import Navbar from "../components/Navbar";
@@ -51,43 +20,56 @@ import axios from 'axios';
 
 const Trade = () => {
   
-const [data, setData] = useState({});
-
+  const [data, setData] = useState({});
+  
   const updateSimulatedPrice = (price) => {
     const randomPercent = ((Math.random() * (0.01 - 0.002)) + 0.002) / 100;
     return price + price * randomPercent;
   };
-
-  const fetchPriceAndVolume = async (exchange, url, pricePath, volumePath) => {
-    try {
-      const response = await fetch(url);
-      const result = await response.json();
-
-      let price = pricePath.split('.').reduce((obj, key) => obj && obj[key], result);
-      const volume = volumePath.split('.').reduce((obj, key) => obj && obj[key], result);
-
-      setData((prev) => ({
-        ...prev,
-        [exchange]: {
-          price: parseFloat(price).toFixed(2),
-          volume
-        }
-      }));
-    } catch (error) {
-      console.error(`Error fetching from ${exchange}: `, error);
-    }
-  };
-
+  
   const calculateDifference = (priceA, priceB) => {
     const diff = ((priceB - priceA) / priceA) * 100;
     return diff.toFixed(2);
   };
-
+  
+  const fetchPriceAndSetForExchanges = async (exchangeList, url, pricePath, originalExchange) => {
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+  
+      const originalPrice = pricePath.split('.').reduce((obj, key) => obj && obj[key], result);
+  
+      const updatedData = {};
+      exchangeList.forEach(exchange => {
+        const randomizedPrice = updateSimulatedPrice(parseFloat(originalPrice));
+        updatedData[exchange] = {
+          price: randomizedPrice.toFixed(2),
+          difference: calculateDifference(originalPrice, randomizedPrice),
+          volume: 'N/A'  // Adjust as needed.
+        };
+      });
+  
+      setData((prev) => ({
+        ...prev,
+        [originalExchange]: {
+          price: originalPrice,
+          difference: '0.00', // No difference for the original price
+          volume: 'N/A'
+        },
+        ...updatedData
+      }));
+    } catch (error) {
+      console.error(`Error fetching data: `, error);
+    }
+  };
+  
   useEffect(() => {
-    fetchPriceAndVolume('Binance', 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT', 'lastPrice', 'volume');
-    fetchPriceAndVolume('Coinbase', 'https://api.coinbase.com/v2/prices/spot?currency=USD', 'data.amount', 'data.volume');
-    // ... add fetch for other exchanges
-
+    const binanceExchanges = ['UniPool', 'KucPool', 'BinPool'];
+    fetchPriceAndSetForExchanges(binanceExchanges, 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT', 'lastPrice', 'Binance');
+  
+    const kucoinExchanges = ['OkPool', 'KrakPool', 'HubPool'];
+    fetchPriceAndSetForExchanges(kucoinExchanges, 'YOUR_KUCOIN_ENDPOINT_HERE', 'YOUR_KUCOIN_PRICE_PATH_HERE', 'Kucoin');
+    
     const interval = setInterval(() => {
       setData((prevData) => {
         const updatedData = {};
@@ -95,18 +77,20 @@ const [data, setData] = useState({});
           const newPrice = updateSimulatedPrice(parseFloat(prevData[exchange].price));
           updatedData[exchange] = {
             ...prevData[exchange],
-            price: newPrice.toFixed(2)
+            price: newPrice.toFixed(2),
+            difference: calculateDifference(prevData.Binance.price, newPrice) // Assuming you want to compare with Binance's price. Adjust as needed.
           };
         }
         return updatedData;
       });
     }, 700);
-
-    // Clean up the interval
+  
     return () => clearInterval(interval);
   }, []);
-
+  
   const exchanges = Object.keys(data);
+  
+  
   
    
   return (
@@ -213,17 +197,17 @@ const [data, setData] = useState({});
             {
     exchanges.map((exchangeA, idxA) => 
         exchanges.slice(idxA + 1).map(exchangeB => (
-            <div key={`${exchangeA}-${exchangeB}`} className="flex justify-between w-full">
+            <div key={`${exchangeA}-${exchangeB}`} className="flex justify-between w-full mb-2 border border-slate-500 p-2 rounded-lg hover:cursor-pointer hover:bg-slate-300">
                 <div className="flex flex-col">
                     <h1>{calculateDifference(data[exchangeA].price, data[exchangeB].price)}%</h1>
                     <h1>BTC/ETH</h1>
                 </div>
                 <div className="flex flex-col">
-                    <h1>{exchangeA}</h1>
+                    <h1 className="font-semibold">{exchangeA}</h1>
                     <h1>${data[exchangeA].price}</h1>
                 </div>
                 <div className="flex flex-col">
-                    <h1>{exchangeB}</h1>
+                    <h1 className="font-semibold">{exchangeB}</h1>
                     <h1>${data[exchangeB].price}</h1>
                 </div>
             </div>
