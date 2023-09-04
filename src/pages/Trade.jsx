@@ -16,83 +16,116 @@ import Chart from "../components/Chart";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { MobileNav } from "../components/MobileNav";
-import axios from 'axios';
+import axios from "axios";
 
 const Trade = () => {
-  
   const [data, setData] = useState({});
-  
+  const [selectedPair, setSelectedPair] = useState(null);
+
+  const [mobileTrade, setMobileTrade] = useState(false);
+
+  const toggleMobileTrade = () => {
+    setMobileTrade((prevState) => !prevState);
+  };
+
+  const handlePairClick = (exchangeA, exchangeB) => {
+    setSelectedPair({
+      pool: `${exchangeA}/${exchangeB}`,
+      poolA: `${exchangeA}`,
+      poolB: `${exchangeB}`,
+      priceA: data[exchangeA].price,
+      priceB: data[exchangeB].price,
+      // Add other relevant data as needed
+    });
+  };
+
   const updateSimulatedPrice = (price) => {
-    const randomPercent = ((Math.random() * (0.01 - 0.002)) + 0.002) / 100;
+    const randomPercent = (Math.random() * (0.01 - 0.002) + 0.002) / 100;
     return price + price * randomPercent;
   };
-  
+
   const calculateDifference = (priceA, priceB) => {
     const diff = ((priceB - priceA) / priceA) * 100;
     return diff.toFixed(2);
   };
-  
-  const fetchPriceAndSetForExchanges = async (exchangeList, url, pricePath, originalExchange) => {
+
+  const fetchPriceAndSetForExchanges = async (
+    exchangeList,
+    url,
+    pricePath,
+    originalExchange
+  ) => {
     try {
       const response = await fetch(url);
       const result = await response.json();
-  
-      const originalPrice = pricePath.split('.').reduce((obj, key) => obj && obj[key], result);
-  
+
+      const originalPrice = pricePath
+        .split(".")
+        .reduce((obj, key) => obj && obj[key], result);
+
       const updatedData = {};
-      exchangeList.forEach(exchange => {
+      exchangeList.forEach((exchange) => {
         const randomizedPrice = updateSimulatedPrice(parseFloat(originalPrice));
         updatedData[exchange] = {
           price: randomizedPrice.toFixed(2),
           difference: calculateDifference(originalPrice, randomizedPrice),
-          volume: 'N/A'  // Adjust as needed.
+          volume: "N/A", // Adjust as needed.
         };
       });
-  
+
       setData((prev) => ({
         ...prev,
         [originalExchange]: {
           price: originalPrice,
-          difference: '0.00', // No difference for the original price
-          volume: 'N/A'
+          difference: "0.00", // No difference for the original price
+          volume: "N/A",
         },
-        ...updatedData
+        ...updatedData,
       }));
     } catch (error) {
       console.error(`Error fetching data: `, error);
     }
   };
-  
+
   useEffect(() => {
-    const binanceExchanges = ['UniPool', 'KucPool', 'BinPool', 'HubPool'];
-    fetchPriceAndSetForExchanges(binanceExchanges, 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT', 'lastPrice', 'Binance');
-  
-    const kucoinExchanges = ['OkPool', 'KrakPool', 'HubPool', 'PoolA'];
-    fetchPriceAndSetForExchanges(kucoinExchanges, 'YOUR_KUCOIN_ENDPOINT_HERE', 'YOUR_KUCOIN_PRICE_PATH_HERE', 'Kucoin');
-    
+    const binanceExchanges = ["UniPool", "KucPool", "BinPool", "HubPool"];
+    fetchPriceAndSetForExchanges(
+      binanceExchanges,
+      "https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT",
+      "lastPrice",
+      "Binance"
+    );
+
+    const kucoinExchanges = ["OkPool", "KrakPool", "HubPool", "PoolA"];
+    fetchPriceAndSetForExchanges(
+      kucoinExchanges,
+      "YOUR_KUCOIN_ENDPOINT_HERE",
+      "YOUR_KUCOIN_PRICE_PATH_HERE",
+      "Kucoin"
+    );
+
     const interval = setInterval(() => {
       setData((prevData) => {
         const updatedData = {};
         for (const exchange in prevData) {
-          const newPrice = updateSimulatedPrice(parseFloat(prevData[exchange].price));
+          const newPrice = updateSimulatedPrice(
+            parseFloat(prevData[exchange].price)
+          );
           updatedData[exchange] = {
             ...prevData[exchange],
             price: newPrice.toFixed(2),
-            difference: calculateDifference(prevData.Binance.price, newPrice) // Assuming you want to compare with Binance's price. Adjust as needed.
+            difference: calculateDifference(prevData.Binance.price, newPrice), // Assuming you want to compare with Binance's price. Adjust as needed.
           };
         }
         return updatedData;
       });
     }, 700);
-  
+
     return () => clearInterval(interval);
   }, []);
-  
+
   const exchanges = Object.keys(data);
-  
-  
-  
-   
+
   return (
     <div className="bg-slate-300 pb-8 relative h-[110vh] md:h-[150vh]">
       <div className="bg-white">
@@ -191,66 +224,106 @@ const Trade = () => {
                 Sell At
               </div>
             </div>
-
+            
+            
             <div className="w-full px-4">
-
-            {
-    exchanges.map((exchangeA, idxA) => 
-        exchanges.slice(idxA + 1).map(exchangeB => (
-            <div key={`${exchangeA}-${exchangeB}`} className="flex justify-between w-full mb-2 border-2 border-slate-500 p-2 rounded-lg hover:cursor-pointer hover:bg-slate-300">
-                <div className="flex flex-col">
-                    <h1 className="font-semibold">{calculateDifference(data[exchangeA].price, data[exchangeB].price)}%</h1>
-                    <h1>BTC/ETH</h1>
-                </div>
-                <div className="flex flex-col">
-                    <h1 className="font-semibold">{exchangeA}</h1>
-                    <h1>${data[exchangeA].price}</h1>
-                </div>
-                <div className="flex flex-col">
-                    <h1 className="font-semibold">{exchangeB}</h1>
-                    <h1>${data[exchangeB].price}</h1>
-                </div>
-            </div>
-        ))
-    )
-}
-
-    </div>
-
-
-
-            
-            
-
-           
-            
-            
-           
-          </div>
-          <div className="bg-white shadow-xl h-[100%] rounded-md p-2 md:flex flex-col justify-between items-center hidden">
-            <div className="mb-1 self-start">
-              <div className="py-2 px-4 rounded-md text-white bg-blue-950">
-                Confirm
-              </div>
-            </div>
-
-            <div>
-              <div>
-                <h1>Pair Details</h1>
-                <div>
-                    <div>
-                        <h1>Pool</h1>
-                        <p>-</p>
-                        <h1>Binance/</h1>
+                          <div>
+                {exchanges.map((exchangeA, idxA) =>
+                  exchanges.slice(idxA + 1).map((exchangeB) => (
+                    <div
+                      key={`${exchangeA}-${exchangeB}`}
+                      onClick={() => handlePairClick(exchangeA, exchangeB)}
+                      className="flex justify-between w-full mb-2 border-2 border-slate-500 p-2 rounded-lg hover:cursor-pointer hover:bg-slate-300"
+                    >
+                      <div className="flex flex-col">
+                        <h1 className="font-semibold">
+                          {calculateDifference(
+                            data[exchangeA].price,
+                            data[exchangeB].price
+                          )}
+                          %
+                        </h1>
+                        <h1>BTC/ETH</h1>
+                      </div>
+                      <div className="flex flex-col">
+                        <h1 className="font-semibold">{exchangeA}</h1>
+                        <h1>${data[exchangeA].price}</h1>
+                      </div>
+                      <div className="flex flex-col">
+                        <h1 className="font-semibold">{exchangeB}</h1>
+                        <h1>${data[exchangeB].price}</h1>
+                      </div>
                     </div>
-                </div>
+                  ))
+                )}
               </div>
             </div>
-
-            <div className=" w-fit py-2 px-12 rounded-md bg-blue-950 text-white ">
-              <button type="submit">TRADE</button>
-            </div>
           </div>
+          {selectedPair && (
+            <div className="bg-white shadow-xl h-[100%] rounded-md p-2 md:flex flex-col items-center hidden">
+              <div className="mb-1 self-start">
+                <div className="py-2 px-4 rounded-md text-white bg-blue-950">
+                  Confirm
+                </div>
+              </div>
+
+              <div className="w-full">
+                <div>
+                  <h1 className="text-4xl font-bold mt-2 mb-5 text-center">
+                    Pair Details
+                  </h1>
+                  <div>
+                    <div className="flex justify-between w-full font-semibold text-xl mb-5 px-3 border-b-2 pb-4 border-slate-600">
+                      <h1>Pool</h1>
+                      <p>-</p>
+                      <h1>{selectedPair.pool}</h1>
+                    </div>
+                    <div className="flex justify-between w-full font-semibold text-xl mb-5 px-3 border-b-2 pb-4 border-slate-600">
+                      <h1>Pairs</h1>
+                      <p>-</p>
+                      <h1>ETH/BTC</h1>
+                    </div>
+                    <div className="flex justify-between w-full font-semibold text-xl mb-10 px-3 border-b-2 pb-4 border-slate-600">
+                      <h1>{`${selectedPair.poolA}`} Marker</h1>
+                      <p>-</p>
+                      <h1>{`${selectedPair.priceA}`}</h1>
+                    </div>
+                    <div className="flex justify-between w-full font-semibold text-xl mb-10 px-3 border-b-2 pb-4 border-slate-600">
+                      <h1>{`${selectedPair.poolB}`} Marker</h1>
+                      <p>-</p>
+                      <h1>{`${selectedPair.priceB}`}</h1>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h1 className="text-4xl font-bold mt-2 mb-5 text-center">
+                    Trade Details
+                  </h1>
+                  <div>
+                    <div className="flex justify-between w-full font-semibold text-xl mb-5 px-3 border-b-2 pb-4 border-slate-600">
+                      <h1>Trade Timer</h1>
+                      <p>-</p>
+                      <h1>3 Hrs 30 Mins</h1>
+                    </div>
+                    <div className="flex justify-between w-full font-semibold text-xl mb-5 px-3 border-b-2 pb-4 border-slate-600">
+                      <h1>Arbitrage Profit</h1>
+                      <p>-</p>
+                      <h1>{`${(selectedPair.priceB - selectedPair.priceA ).toFixed(2)}`}</h1>
+                    </div>
+                    <div className="flex justify-between w-full font-semibold text-xl mb-10 px-3 border-b-2 pb-4 border-slate-600">
+                      <h1>Platform Fee</h1>
+                      <p>-</p>
+                      <h1>{`${(((selectedPair.priceB - selectedPair.priceA ).toFixed(2)) / 3000)}`}</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className=" w-fit py-2 px-12 rounded-md bg-blue-950 text-white ">
+                <button type="submit">TRADE</button>
+              </div>
+            </div>
+          )}
         </div>
       </main>
       <div className="mt-8 absolute bottom-0 w-full">
