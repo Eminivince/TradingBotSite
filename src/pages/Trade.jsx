@@ -211,7 +211,7 @@ const Trade = () => {
           </div>
         </div>
         <div className="rounded-md shadow-xl md:grid md:grid-cols-2 md:gap-3 md:w-[100%] w-[96vw] mx-auto col-span-6">
-          {mobileTrade && <div className="md:hidden">
+          {mobileTrade && <div className="hidden md:block">
           <div className="bg-white shadow-xl h-[100%] rounded-md p-2 flex flex-col space-y-4 items-center">
             <div className="mb-1 self-start">
               <div className="py-2 px-4 rounded-md text-white bg-blue-950">

@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Avatar from '../assets/images/Avatar.png'
+import {AiOutlineMenu, AiOutlineClose} from "react-icons/ai"
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  function toggleMenu() {
+    setMenuOpen(prevState => !prevState);
+}
+
+
   return (
     <div>
         <>
@@ -21,8 +29,28 @@ const Navbar = () => {
                 <li className='cursor-pointer hover:underline'><a href=""></a>Features</li>
                 <li className='cursor-pointer hover:underline'><a href=""></a>Contact Us</li>
             </ul>
-            <div className='md:hidden block'>
-              <img src={Avatar} alt="avatar" />
+            <div className='md:hidden relative text-right'>
+              <div className='font-bold text-3xl' onClick={toggleMenu}>
+                {menuOpen ? (<AiOutlineClose />) : (<AiOutlineMenu />)}
+              </div>
+              {menuOpen && (
+                <div className='absolute top-12 h-screen opacity-90 w-screen p-6 bg-blue-950 text-white -right-6 text-2xl'>
+              <ul className='md:hidden  font-bold space-y-6'>
+                <Link to='/'>
+                        <li className='cursor-pointer hover:underline'><a href=""></a>Home</li>
+                </Link>
+                
+                <Link to='/'>
+                <li className='cursor-pointer hover:underline'><a href=""></a>Services</li>
+                </Link>
+                
+                <li className='cursor-pointer hover:underline'><a href=""></a>About Us</li>
+                <li className='cursor-pointer hover:underline'><a href=""></a>Features</li>
+                <li className='cursor-pointer hover:underline'><a href=""></a>Contact Us</li>
+            </ul>
+              </div>
+              )}
+              
             </div>
           
         </nav>
