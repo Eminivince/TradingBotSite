@@ -8,7 +8,7 @@ import {
 } from "react-icons/md";
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
 import { FaMoneyCheck } from "react-icons/fa";
-import { AiFillCreditCard, AiFillQuestionCircle } from "react-icons/ai";
+import { AiFillCheckCircle, AiFillCreditCard, AiFillQuestionCircle } from "react-icons/ai";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import Avatar from "../assets/images/Avatar.png";
 
@@ -20,13 +20,19 @@ const Trade = () => {
   const [data, setData] = useState({});
   const [selectedPair, setSelectedPair] = useState(null);
 
-  const [mobileTrade, setMobileTrade] = useState(false);
+  const [mobileTrade, setMobileTrade] = useState(true);
   const [selectedContent, setSelectedContent] = useState('iiii');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const toggleMobileTrade = () => {
     setMobileTrade((prevState) => !prevState);
     console.log("clicked");
   };
+  const toggleSubmitTrade = () => {
+    setIsSubmitted((prevState) => !prevState);
+    console.log("clicked");
+  };
+
 
   const handlePairClick = (exchangeA, exchangeB) => {
     setSelectedPair({
@@ -211,7 +217,7 @@ const Trade = () => {
           </div>
         </div>
         <div className="rounded-md shadow-xl md:grid md:grid-cols-2 md:gap-3 md:w-[100%] w-[96vw] mx-auto col-span-6">
-          {mobileTrade && <div className="hidden md:block">
+          {mobileTrade && <div className="block pb-8">
           <div className="bg-white shadow-xl h-[100%] rounded-md p-2 flex flex-col space-y-4 items-center">
             <div className="mb-1 self-start">
               <div className="py-2 px-4 rounded-md text-white bg-blue-950">
@@ -281,9 +287,9 @@ const Trade = () => {
 
 
           {!mobileTrade &&
-          <div className="bg-white shadow-xl min-h-[90vh] rounded-md p-2 md:flex flex-col items-center">
+          <div className="bg-white shadow-xl min-h-[90vh] rounded-md p-2 md:flex flex-col items-center pb-[8vh] relative">
             <div className="mb-1 self-start">
-              <div className="py-2 px-4 rounded-md text-white bg-blue-950">
+              <div className="py-2 px-4 rounded-md text-white bg-blue-950 text-center">
                 Confirm
               </div>
             </div>
@@ -350,10 +356,21 @@ const Trade = () => {
 
             <div
               className=" w-fit py-2 px-12 rounded-md bg-blue-950 text-white "
-              onClick={() => toggleMobileTrade()}
+              onClick={() => toggleSubmitTrade()}
             >
               <button type="submit">TRADE</button>
             </div>
+            { isSubmitted &&
+              (<div className='w-[95vw] md:w-full bg-white mx-auto pt-10 pb-6 px-6 mt-4 rounded-lg flex flex-col justify-center text-center absolute  top-3 right-1'>
+              <div className='text-8xl text-green-800 mx-auto mb-5'>
+              <AiFillCheckCircle />
+              </div>
+              <h1 className='text-4xl font-bold mb-3'>Trade Request Submitted</h1>
+              <p className='mb-5'>Trade Submitted and should be processed in approximately 3 hours 30 minutes</p>
+              <button type='button' className='bg-slate-800 rounded-lg text-white py-2' onClick=''>See Transactions</button>
+              
+          </div>)
+            }
           </div>
           }
 

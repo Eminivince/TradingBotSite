@@ -9,7 +9,7 @@ import Footer from '../components/Footer'
 
 const Login = () => {
   return (
-    <div>
+    <div className=' min-h-screen pb-8'>
         <Navbar />
         <section className='flex flex-col md:flex-row clear-left text-[#001F3E] md:text-xl md:font-medium md:px-16 px-6 md:space-x-14 md:items-center'>
         <div className=' md:ml-8 signup mt-8 basis-1/2'>
@@ -19,17 +19,30 @@ const Login = () => {
                 <input type='text' id='fullname' placeholder='Enter Your Email Address' className='border border-[#001F3E]  p-4 rounded-md'/>
                 <label htmlFor="fullname" className='mb-1 mt-2 '>Password</label>
                 <input type='password' id='fullname' placeholder='Enter Your Password' className='border border-[#001F3E] p-4 rounded-md mb-2'/>
-                <div className='mb-2'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </div>
-                <button type='submit' className='bg-[#001F3E] p-4 rounded-md text-white hover:brightness-150 duration-300'>Login</button>
+                <div className='mb-3 mt-3 flex space-x-3 items-center'>
+                    <input type="checkbox" />
+                    <p className='text-xs'>Keep me logged in</p>
+                </div>
+
+                
+                <Link to='/Dashboard'>
+                    <div className='bg-[#001F3E] p-4 rounded-md text-white hover:brightness-150 duration-300 text-center text-2xl'>Login</div>
+                        
+                </Link>
+
+                
+                
+                
             </form>
             <h1 className='text-right mb-8 text-gray-500'>Don't have an account? 
             <Link to='/Signup'>
                 <span className='text-[#001F3E] cursor-pointer'> Sign Up</span>
             </Link>
             </h1>
-            <div className='relative'>
-                <hr/>
-                <p className='text-2xl'>OR</p>
+            <div className='flex w-full justify-between items-center'>
+                <div className='h-[1px] w-[40%] bg-gray-500'></div>
+                <p className='text-2xl w-[10%]'>OR</p>
+                <div className='h-[1px] w-[40%] bg-gray-500'></div>
             </div>
             
         </div>
