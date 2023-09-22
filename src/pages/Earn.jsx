@@ -13,6 +13,7 @@ import Footer from '../components/Footer'
 import {SlArrowUp, SlArrowDown} from 'react-icons/sl'
 import Attention from '../assets/images/attantion.png'
 import { MobileNav } from '../components/MobileNav'
+import Usernav from '../components/Usernav'
 
 
 const Earn = () => {
@@ -29,7 +30,7 @@ const Earn = () => {
   return (
     <div className='bg-slate-300 w-[100vw] md:h-[150vh] h-[110vh] relative'>
         <div className='bg-white'>
-                <Navbar />
+                <Usernav />
         </div>
         
         <header className='md:px-24 md:grid md:grid-cols-8 md:gap-3 flex justify-between md:space-x-5 mt-6 mx-auto md:w-full w-[96vw]'>

@@ -15,9 +15,10 @@ import Avatar from "../assets/images/Avatar.png";
 import { Link } from "react-router-dom";
 
 import { MobileNav } from "../components/MobileNav";
+
 import Usernav from "../components/Usernav";
 
-const Trade = () => {
+const Transactions = () => {
   const [data, setData] = useState({});
   const [selectedPair, setSelectedPair] = useState(null);
 
@@ -138,7 +139,7 @@ const Trade = () => {
   const exchanges = Object.keys(data);
 
   return (
-    <div className="bg-slate-300 pb-8 relative h-[100%] md:h-[150vh]">
+    <div className="bg-slate-300 pb-8 relative md:h-[150vh]">
       <div className="bg-white">
         <Usernav />
       </div>
@@ -217,163 +218,58 @@ const Trade = () => {
             </div>
           </div>
         </div>
-        <div className="rounded-md shadow-xl md:grid md:grid-cols-2 md:gap-3 md:w-[100%] w-[96vw] mx-auto col-span-6">
-          {mobileTrade && <div className="block pb-8">
-          <div className="bg-white shadow-xl h-[100%] rounded-md p-2 flex flex-col space-y-4 items-center">
-            <div className="mb-1 self-start">
-              <div className="py-2 px-4 rounded-md text-white bg-blue-950">
-                Select
-              </div>
-            </div>
-            <div className="flex  w-full justify-between space-x-2 md:space-x-0">
-              <div className="py-2 border-2 w-32 text-center font-medium border-blue-950 rounded-md">
-                Differences
-              </div>
-              <div className="py-2 border-2 w-32 text-center font-medium border-blue-950 rounded-md">
-                Buy From
-              </div>
-              <div className="py-2 border-2 w-32 text-center font-medium border-blue-950 rounded-md">
-                Sell At
-              </div>
-            </div>
-
-            <div className="w-full px-4">
-              <div>
-                {exchanges.map((exchangeA, idxA) =>
-                  exchanges.slice(idxA + 1).map((exchangeB) => (
-                    <div
-                      key={`${exchangeA}-${exchangeB}`}
-                      onClick={() => {
-                        handlePairClick(exchangeA, exchangeB);
-                        toggleMobileTrade();
-                        setSelectedContent({
-                          
-                          exchangeA: exchangeA,
-                          exchangeB: exchangeB,
-                          difference: calculateDifference(data[exchangeA].price, data[exchangeB].price),
-                          priceA: data[exchangeA].price,
-                          priceB: data[exchangeB].price
-                          
-                      });
-                    }}
-
-                      className="flex justify-between w-full mb-2 border-2 border-slate-500 p-2 rounded-lg hover:cursor-pointer hover:bg-slate-300"
-                    >
-                      <div className="flex flex-col">
-                        <h1 className="font-semibold">
-                          {calculateDifference(
-                            data[exchangeA].price,
-                            data[exchangeB].price
-                          )}
-                          %
-                        </h1>
-                        <h1>BTC/ETH</h1>
-                      </div>
-                      <div className="flex flex-col">
-                        <h1 className="font-semibold">{exchangeA}</h1>
-                        <h1>${data[exchangeA].price}</h1>
-                      </div>
-                      <div className="flex flex-col">
-                        <h1 className="font-semibold">{exchangeB}</h1>
-                        <h1>${data[exchangeB].price}</h1>
-                      </div>
-                    </div>
-                  ))
-                )}
-              </div>
-            </div>
-          </div>
-          </div>
-}
-
-
-          {!mobileTrade &&
-          <div className="bg-white shadow-xl min-h-[90vh] rounded-md p-2 md:flex flex-col items-center pb-[8vh] relative">
-            <div className="mb-1 self-start">
-              <div className="py-2 px-4 rounded-md text-white bg-blue-950 text-center">
-                Confirm
-              </div>
-            </div>
-
-            <div className="w-full">
-              <div>
-                <h1 className="text-4xl font-bold mt-2 mb-5 text-center">
-                  Pair Details
-                </h1>
-                <div>
-                  <div className="flex justify-between w-full font-semibold text-xl mb-5 px-3 border-b-2 pb-4 border-slate-600">
-                    <h1>Pool</h1>
-                    <p>-</p>
+        <div className="rounded-md bg-slate-300  md:w-[100%] w-[96vw] mx-auto col-span-6">
+            <div className="bg-white md:w-[70%] md:h-[100%] mx-auto p-5 shadow-xl rounded-md">
+                <p className="mb-7 font-bold text-2xl text-center bg-green-700 rounded-md text-white p-3">Recent Transactions</p>
+                <div className="flex justify-between mt-4 border-b-2 pb-3">
                     <div>
-                      {selectedContent.exchangeA ? (
-                        <h1>
-                          {(selectedContent.exchangeA)}/{(selectedContent.exchangeB)}
-                        </h1>
-                      ) : (
-                        <div></div>
-                      )}
+                        <div className="font-semibold">Bought</div>
+                        <div>0.001</div>
                     </div>
-                  </div>
-                  <div className="flex justify-between w-full font-semibold text-xl mb-5 px-3 border-b-2 pb-4 border-slate-600">
-                    <h1>Pairs</h1>
-                    <p>-</p>
-                    <h1>ETH/BTC</h1>
-                  </div>
-                  <div className="flex justify-between w-full font-semibold text-xl mb-5 px-3 border-b-2 pb-4 border-slate-600">
-                    <h1>{`${selectedContent.exchangeA}`} Marker</h1>
-                      <p>-</p>
-                      <h1>{`${selectedContent.priceA}`}</h1>
-                  </div>
-                  <div className="flex justify-between w-full font-semibold text-xl mb-10 px-3 border-b-2 pb-4 border-slate-600">
-                  <h1>{`${selectedContent.exchangeB}`} Marker</h1>
-                      <p>-</p>
-                      <h1>{`${selectedContent.priceB}`}</h1>
-                  </div>
+                    <div className="text-right">
+                        <div className="font-semibold">July 12, 2023</div>
+                        <div>$180.00</div>
+                    </div>
                 </div>
-              </div>
-              <div>
-                <h1 className="text-4xl font-bold mt-2 mb-5 text-center">
-                  Trade Details
-                </h1>
-                <div>
-                  <div className="flex justify-between w-full font-semibold text-xl mb-5 px-3 border-b-2 pb-4 border-slate-600">
-                    <h1>Trade Timer</h1>
-                    <p>-</p>
-                    <h1>3 Hrs 30 Mins</h1>
-                  </div>
-                  <div className="flex justify-between w-full font-semibold text-xl mb-5 px-3 border-b-2 pb-4 border-slate-600">
-                    <h1>Arbitrage Profit</h1>
-                    <p>-</p>
-                    <h1>{`${(selectedContent.priceB - selectedContent.priceA ).toFixed(2)}`}</h1>
-                  </div>
-                  <div className="flex justify-between w-full font-semibold text-xl mb-10 px-3 border-b-2 pb-4 border-slate-600">
-                    <h1>Platform Fee</h1>
-                    <p>-</p>
-                    <h1>{`${(((selectedContent.priceB - selectedContent.priceA ).toFixed(2)) / 3000).toFixed(5)}`}</h1>
-                  </div>
+                <div className="flex justify-between mt-4 border-b-2 pb-3">
+                    <div>
+                        <div className="font-semibold">Bought</div>
+                        <div>0.001</div>
+                    </div>
+                    <div className="text-right">
+                        <div className="font-semibold">July 12, 2023</div>
+                        <div>$180.00</div>
+                    </div>
                 </div>
-              </div>
+                <div className="flex justify-between mt-4 border-b-2 pb-3">
+                    <div>
+                        <div className="font-semibold">Bought</div>
+                        <div>0.001</div>
+                    </div>
+                    <div className="text-right">
+                        <div className="font-semibold">July 12, 2023</div>
+                        <div>$180.00</div>
+                    </div>
+                </div>
+                
+                <div className="flex justify-between mt-4 border-b-2 pb-3">
+                    <div>
+                        <div className="font-semibold">Bought</div>
+                        <div>0.001</div>
+                    </div>
+                    <div className="text-right">
+                        <div className="font-semibold">July 12, 2023</div>
+                        <div>$180.00</div>
+                    </div>
+                </div>
+                
+                
             </div>
+          
 
-            <div
-              className=" w-fit py-2 px-12 rounded-md bg-blue-950 text-white "
-              onClick={() => toggleSubmitTrade()}
-            >
-              <button type="submit">TRADE</button>
-            </div>
-            { isSubmitted &&
-              (<div className='w-[95vw] md:w-full bg-white mx-auto pt-10 pb-6 px-6 mt-4 rounded-lg flex flex-col justify-center text-center absolute  top-3 right-1'>
-              <div className='text-8xl text-green-800 mx-auto mb-5'>
-              <AiFillCheckCircle />
-              </div>
-              <h1 className='text-4xl font-bold mb-3'>Trade Request Submitted</h1>
-              <p className='mb-5'>Trade Submitted and should be processed in approximately 3 hours 30 minutes</p>
-              <button type='button' className='bg-slate-800 rounded-lg text-white py-2' onClick=''>See Transactions</button>
-              
-          </div>)
-            }
-          </div>
-          }
+
+
+          
 
         </div>
       </main>
@@ -384,4 +280,4 @@ const Trade = () => {
   );
 };
 
-export default Trade;
+export default Transactions;

@@ -16,6 +16,7 @@ import Chart from "../components/Chart";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { MobileNav } from "../components/MobileNav";
+import Usernav from "../components/Usernav";
 
 
 const Dashboard = () => {
@@ -49,7 +50,7 @@ const Dashboard = () => {
   return (
     <div className="bg-slate-300 md:h-[150vh] h-[105vh] relative">
       <div className="bg-white">
-        <Navbar />
+        <Usernav />
       </div>
       <div className="h-screen">
         <header className="md:px-24 md:grid md:grid-cols-8 md:gap-3 md:justify-between space-x-2 md:space-x-5 mt-6 flex px-2 ">
