@@ -32,11 +32,11 @@ const Signup = () => {
                 <span className='text-[#001F3E] cursor-pointer'> Log in</span>
             </Link>
             </h1>
-            <div className='flex w-full justify-between items-center'>
+            {/* <div className='flex w-full justify-between items-center'>
                 <div className='h-[1px] w-[40%] bg-gray-500'></div>
                 <p className='text-2xl w-[10%]'>OR</p>
                 <div className='h-[1px] w-[40%] bg-gray-500'></div>
-            </div>
+            </div> */}
             
         </div>
         <img src={Heroimg} alt="hand" className='basis-1/2 h-[500px] hidden md:block' />
@@ -44,7 +44,7 @@ const Signup = () => {
         </section>
        
        
-        <section className='flex md:justify-between justify-around space-x-5 md:w-[49%] md:pl-24 px-6 md:px-0 mt-8 md:mb-12'>
+        {/* <section className='flex md:justify-between justify-around space-x-5 md:w-[49%] md:pl-24 px-6 md:px-0 mt-8 md:mb-12'>
             <div className='flex  items-center md:space-x-4 space-x-2 md:text-lg font-medium border border-[#001F3E] p-4 rounded-md cursor-pointer hover:bg-slate-200 duration-200 md:w-[100%]'>
                 <img src={Google} alt="google" className='md:w-6 w-6' />
                 <p className='flex'><span className='hidden md:block pr-1'>Sign up with</span> Google</p>
@@ -54,7 +54,7 @@ const Signup = () => {
                 <p className='flex'><span className='hidden md:block pr-1'>Sign up with</span> Apple ID</p>
             </div>
             
-        </section>
+        </section> */}
         
     </div>
   )

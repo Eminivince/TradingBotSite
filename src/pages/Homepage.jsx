@@ -27,7 +27,7 @@ const Homepage = () => {
                 <p className='md:text-3xl font-medium text-center md:text-left'>Effortless Ethereum-Based Arbitrage Trading Platform. Success Made Simple, Invest with ease and grow your profit.</p>
                 
                 <div className='md:self-start'>
-                    <Link to='/Signup'>
+                    <Link to='/Login'>
                     <button type='button' className='bg-[#001F3E] md:w-44 md:p-[20px] py-[14px] px-[30px] text-white mt-7 hover:brightness-150  rounded-md'>
                     
                              Get Started
