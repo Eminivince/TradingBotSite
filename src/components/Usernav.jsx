@@ -44,7 +44,7 @@ const Usernav = () => {
                 <li className='cursor-pointer hover:underline'><a href=""></a>Features</li>
                 </Link>
 
-                <Link to='/'>
+                <Link to='/ContactUs'>
                 <li className='cursor-pointer hover:underline'><a href=""></a>Contact Us</li>
                 </Link>
             </ul>
@@ -64,12 +64,14 @@ const Usernav = () => {
                 </div>
                 <p>Account Settings</p>
               </div>
+              <Link to='/ContactUs'>
               <div className='flex  space-x-4 items-center text-black bg-white p-3 mt-4 rounded-md'>
                 <div className='text-4xl'>
                 <MdOutlineSupportAgent />
                 </div>
                 <p>Support</p>
               </div>
+              </Link>
               <div className='flex  space-x-4 items-center text-black bg-white p-3 mt-4 rounded-md'>
                 <div className='text-4xl'>
                 <GiPadlock />

@@ -66,7 +66,7 @@ const Navbar = () => {
                 <li className='cursor-pointer hover:underline mb-3 active:underline'><a href=""></a>Features</li>
                 </Link>
 
-                <Link to='/'>
+                <Link to='/ContactUs'>
                 <li className='cursor-pointer hover:underline active:underline'><a href=""></a>Contact Us</li>
                 </Link>
             </ul>

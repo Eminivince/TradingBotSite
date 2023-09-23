@@ -9,6 +9,7 @@ import Deposit from './pages/Deposit';
 import Withdraw from './pages/Withdraw';
 import Earn from './pages/Earn';
 import Transactions from './pages/Transactions';
+import ContactUs from './pages/ContactUs';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/Withdraw" element={<Withdraw />} />
         <Route path="/Earn" element={<Earn />} />
         <Route path="/Transactions" element={<Transactions />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
       </Routes>
     </div>
   );
